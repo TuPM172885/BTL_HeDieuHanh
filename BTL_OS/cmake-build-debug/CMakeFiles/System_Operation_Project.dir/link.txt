@@ -1,0 +1,1 @@
+/usr/bin/cc -pthread -g CMakeFiles/System_Operation_Project.dir/Caltrain-runner.c.o -o System_Operation_Project 

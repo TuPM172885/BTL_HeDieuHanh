@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tupham/Desktop/BTL_HeDieuHanh/BTL_OS/Caltrain-runner.c
+stdio.h
+-
+stdlib.h
+-
+signal.h
+-
+time.h
+-
+unistd.h
+-
+pthread.h
+-
+Caltrain.h
+/home/tupham/Desktop/BTL_HeDieuHanh/BTL_OS/Caltrain.h
+
+/home/tupham/Desktop/BTL_HeDieuHanh/BTL_OS/Caltrain.h
+pthread.h
+-
+stdbool.h
+-
+

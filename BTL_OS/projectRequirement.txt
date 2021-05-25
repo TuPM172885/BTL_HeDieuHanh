@@ -1,0 +1,41 @@
+                                        ### Problem 0 : CalTrain ###
+ Quá trình nâng cao hiệu quả các chuyến tàu bằng cách tự động hóa không chỉ các chuyến tàu
+ mà còn cả hành khách của nó .(hành khách được robot phục vụ).
+ Giả thuyết rằng bạn là người viết chương trình này để điều hành các chuyến tàu một cách có trật tự
+ ====> Hãy định nghĩa một Struct station , cộng với một số chức năng được miêu tả bên dưới
+
+    + Khi một đoàn tàu đến ga và nó mở cửa nó sẽ gọi hàm :
+            station_load_train(struct station *station, int count)
+         // trong đó count cho biết có bao nhiêu chỗ  ngồi free trên tàu.
+            Chức năng này ko tra ve cho đến khi tàu được xếp đầy đủ (tất cả hành khách đã ngồi trên ghế của mình và [tàu đã đầy chỗ] hoặc [tất cả hành khách đang chờ đã lên tàu] ).
+    + Khi rô bốt chở khách đến nhà ga, đầu tiên nó sẽ gọi hàm :
+            station_wait_for_train(struct station *station)
+         // hàm này không trả về cho đến khi tàu ở trong ga và có đủ ghế cho hành khách ngồi . Một khi hàm
+         trả về giá trị robot sẽ trả khách về 1 chỗ ngồi trên tàu.
+    + khi khách đã ngồi sẽ gọi hàm :
+            station_on_board(struct station *station)
+         // để thông báo cho tàu biết khách đã ngồi trên tàu
+ Việc cần làm là tạo một file caltrain.c bao gồm khai báo cho Struct station và 3 hàm ở trên
+ và một hàm station_init đêr khởi taọ nhà ga khi khởi chạy chương trình.
+    Điều kiện là :
+        Viết chương trình C chỉ sử dụng các hàm Pintos cho việc Locks va condition variable:
+
+            lock_init (struct lock *lock)
+            lock_acquire(struct lock *lock)   // dua trang thai tu unlock => locked , neu dang lock thi chuyen loi goi vao hang doi
+           lock_release(struct lock *lock)
+
+
+            cond_init(struct condition *cond)
+            cond_wait(struct condition *cond, struct lock *lock)  // đưa 1 thread vào trang thai cho
+            ond_signal(struct condition *cond, struct lock *lock)  // wake up 1 thread xac dinh
+            cond_broadcast(struct condition *cond, struct lock *lock) // wake up tat ca thread dang cho
+
+          // ref in synch file in thread pintos
+        No semaphores or other synchronization primitives
+       1 ,không sử dụng nhiều hơn 1 khóa cho mỗi struct station
+       2 ,Bạn có thể giả định rằng không bao giờ có nhiều hơn một chuyến tàu trong nhà ga cùng một lúc
+       và tất cả các chuyến tàu (và tất cả hành khách) đều đi đến cùng một điểm đến
+       (tức là mọi hành khách có thể lên bất kỳ chuyến tàu nào).
+       3 ,Mã của bạn phải cho phép nhiều hành khách lên máy bay đồng thời (phải có thể nhiều hành khách
+        đã gọi station_wait_for_train và để chức năng đó được trả về cho từng hành khách, trước khi bất kỳ hành khách nào gọi tới station_on_board)
+       4 , Mã của bạn không được dẫn đến việc chờ đợi.Bạn có thể cho rằng không có đánh thức giả trên các biến điều kiện

@@ -1,0 +1,3 @@
+/home/tupham/Desktop/BTL_HeDieuHanh/BTL_OS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/tupham/Desktop/BTL_HeDieuHanh/BTL_OS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tupham/Desktop/BTL_HeDieuHanh/BTL_OS/cmake-build-debug/CMakeFiles/System_Operation_Project.dir
